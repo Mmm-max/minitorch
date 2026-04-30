@@ -79,7 +79,7 @@ def sigmoid(x: float) -> float:
     for stability.
     """
     # TODO: Implement for Task 0.1.
-    return 1 / (1 + math.exp(-abs(x)))
+    return 1 / (1 + math.exp(-x))
     raise NotImplementedError('Need to implement for Task 0.1')
 
 
