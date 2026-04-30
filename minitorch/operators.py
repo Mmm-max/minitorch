@@ -182,14 +182,21 @@ def zipWith(
 
     """
     # TODO: Implement for Task 0.3.
-    return lambda arr1, arr2: ((arr1[i], arr2[i]) for i in range(len(arr1)))
+    def func(arr1, arr2):
+        ans = []
+        for i in range(len(arr1)):
+            ans.append(fn(arr1[i], arr2[i]))
+        
+        return ans
+    return lambda arr1, arr2: (fn(arr1[i], arr2[i]) for i in range(len(arr1)))
+    # return func
     raise NotImplementedError('Need to implement for Task 0.3')
 
 
 def addLists(ls1: Iterable[float], ls2: Iterable[float]) -> Iterable[float]:
     "Add the elements of `ls1` and `ls2` using `zipWith` and `add`"
     # TODO: Implement for Task 0.3.
-    return map(add)(zip(ls1, ls2))
+    return zipWith(add)(ls1, ls2)
     raise NotImplementedError('Need to implement for Task 0.3')
 
 
@@ -210,11 +217,11 @@ def reduce(
     """
     # TODO: Implement for Task 0.3.
     def func(arr):
-        while arr:
-            val = arr.pop(0)
-            start = fn(start, val)
+        ans = start
+        for val in arr:
+            ans = fn(ans, val)
         
-        return start
+        return ans
     return func
     raise NotImplementedError('Need to implement for Task 0.3')
 
