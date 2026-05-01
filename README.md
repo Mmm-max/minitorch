@@ -1,6 +1,9 @@
 # minitorch
 The full minitorch student suite. 
 
+# module 0
+## task 0.4
+![simple example](images/image.png)
 
 To access the autograder: 
 

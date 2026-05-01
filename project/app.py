@@ -1,4 +1,12 @@
 from argparse import ArgumentParser
+from pathlib import Path
+import sys
+
+# Make the repo root importable so `import minitorch` works whether Streamlit
+# is launched as `project/app.py` from the repo root or `app.py` inside project/.
+ROOT = Path(__file__).resolve().parent.parent
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 import streamlit as st
 from interface.streamlit_utils import get_img_tag
