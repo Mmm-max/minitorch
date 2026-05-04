@@ -184,6 +184,18 @@ class Scalar:
         assert h.ctx is not None
 
         # TODO: Implement for Task 1.3.
+        grads = h.last_fn._backward(h.ctx, d_output)
+        if not isinstance(grads, tuple):
+            grads = (grads,)
+        
+        result = []
+        for inp, g in zip(h.inputs, grads):
+            # Avoid isinstance checks against a typing.Protocol (not runtime-checkable).
+            # Use duck-typing: consider inputs that expose `is_constant()` as Variables.
+            if hasattr(inp, "is_constant") and not inp.is_constant():
+                result.append((inp, g))
+
+        return result
         raise NotImplementedError('Need to implement for Task 1.3')
 
     def backward(self, d_output: Optional[float] = None) -> None:

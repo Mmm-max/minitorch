@@ -71,6 +71,11 @@ def topological_sort(variable: Variable) -> Iterable[Variable]:
         Non-constant Variables in topological order starting from the right.
     """
     # TODO: Implement for Task 1.4.
+    ans = []
+    l = [variable]
+    while l:
+        cur: Variable = l.pop()
+        if not l.is_constant()
     raise NotImplementedError('Need to implement for Task 1.4')
 
 
