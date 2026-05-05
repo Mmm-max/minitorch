@@ -166,7 +166,7 @@ class Sigmoid(ScalarFunction):
     def backward(ctx: Context, d_output: float) -> float:
         # TODO: Implement for Task 1.4.
         (sigm,) = ctx.saved_values
-        return sigm * (1 - sigm)
+        return d_output * sigm * (1 - sigm)
         raise NotImplementedError('Need to implement for Task 1.4')
 
 
